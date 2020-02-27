@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 import useLocation from '../../hooks/useLocation';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SafeAreaView, withNavigationFocus } from 'react-navigation';
 import TrackMap from '../../components/TrackMap';
@@ -23,12 +23,13 @@ const TrackCreateScreen = ({ isFocused }) => {
     const [error] = useLocation(isFocused || isRecording, callback);
 
     return (
-        <SafeAreaView forceInset={{ top: 'always' }}>
-            <Text h2>This is track create screen</Text>
-            <TrackMap />
-            {error ? <Text>{error}</Text> : null}
-            <TrackForm />
-        </SafeAreaView>
+      
+            <ScrollView>
+                <TrackMap />
+                {error ? <Text>{error}</Text> : null}
+                <TrackForm />
+            </ScrollView>
+
     );
 };
 
@@ -39,6 +40,10 @@ TrackCreateScreen.navigationOptions = () => {
     };
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    screen: { 
+        flex: 1 
+    }
+});
 
 export default withNavigationFocus(TrackCreateScreen);

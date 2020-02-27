@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { Text, Button, Input } from 'react-native-elements';
 import Spacer from './Spacer';
+import Colors from '../constants/Colors';
 
 const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
     const [email, setEmail] = useState('');
@@ -38,6 +39,9 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
 
             <Spacer>
                 <Button
+                    buttonStyle={styles.button}
+                    titleStyle={styles.text}
+                    type={Platform.OS === 'android' ? 'solid' : 'clear'}
                     title={submitButtonText}
                     onPress={() => onSubmit(email, password)}
                 />
@@ -52,6 +56,12 @@ const styles = StyleSheet.create({
         color: 'red',
         marginLeft: 15,
         marginTop: 15
+    },
+    button: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primary : null
+    },
+    text: {
+        color: Platform.OS === 'android' ? 'white' : Colors.accent
     }
 });
 

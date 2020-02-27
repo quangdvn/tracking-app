@@ -4,20 +4,6 @@ import MapView, { Polyline, Circle } from 'react-native-maps';
 import { Context as LocationContext } from '../context/locationContext';
 
 const TrackMap = () => {
-    // let mapPoints = [];
-    // for (let i = 0; i < 20; ++i) {
-    //     if (i % 2 === 0) {
-    //         mapPoints.push({
-    //             latitude: 21.028511 + i * 0.001,
-    //             longitude: 105.804817 + i * 0.001
-    //         });
-    //     } else {
-    //         mapPoints.push({
-    //             latitude: 21.028511 + i * 0.002,
-    //             longitude: 105.804817 + i * 0.001
-    //         });
-    //     }
-    // }
     const {
         state: { currentLocation, locations }
     } = useContext(LocationContext);

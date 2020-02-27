@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import Spacer from './Spacer';
+import Colors from '../constants/Colors';
 
 const NavLink = ({ navigation, text, routeName }) => {
     return (
@@ -15,11 +16,9 @@ const NavLink = ({ navigation, text, routeName }) => {
 
 const styles = StyleSheet.create({
     navigationStyle: {
-        color: 'blue',
+        color: Platform.OS === 'android' ? Colors.primary : Colors.accent,
         fontSize: 16
     }
 });
 
 export default withNavigation(NavLink);
-
-

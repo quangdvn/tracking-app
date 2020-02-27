@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, KeyboardAvoidingView } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import Spacer from './Spacer';
 import { Context as LocationContext } from '../context/locationContext';
